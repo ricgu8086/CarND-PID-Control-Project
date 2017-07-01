@@ -11,6 +11,7 @@ class PID
 		double i_error;
 		double d_error;
 
+		double prev_cte;
 		/*
 		 * Coefficients
 		 */
