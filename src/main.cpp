@@ -50,14 +50,14 @@ int main()
     PID pid;
     // : Initialize the pid variable.
  
-    double Kp = 1;
-    double Ki = 1;
-    double Kd = 1;
+    double Kp = 0.436437;
+    double Ki = 0.0467251;
+    double Kd = 7.44939;
  
     pid.Init(Kp, Ki, Kd);
  
     // For disabling parameter tunning mode, just comment the following line
-    pid.Twiddle_On();
+    //pid.Twiddle_On();
 
     h.onMessage(
             [&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode)
@@ -105,8 +105,8 @@ int main()
                             if (steer_value < -1)
                                 steer_value = -1;
  
-                            // DEBUG
-                            std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
+                            //  DEBUG
+                            //cout << "CTE: " << cte << " Steering Value: " << steer_value << endl;
  
                             json msgJson;
                             msgJson["steering_angle"] = steer_value;
